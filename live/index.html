@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>적응증 청구 대시보드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+  <script type="module" crossorigin src="./assets/index-CpYf8uoF.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DbrebCDY.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>적응증 청구 대시보드</h1>
+  <p class="sub">외래·입원 명세서 2024.01~2025.12 · 2025년을 2024년과 비교</p>
+</header>
+<div class="bar">
+  <div class="chips" id="areaChips" role="group" aria-label="질환 영역"></div>
+  <div class="sel">
+    <label for="fSick">세부 상병<select id="fSick"></select></label>
+    <label for="fDept">진료과<select id="fDept"></select></label>
+    <label for="fReg">환자 거주 권역<select id="fReg"></select></label>
+    <label for="fFom">진료 형태<select id="fFom"><option value="">전체</option><option value="0">외래</option><option value="1">입원</option></select></label>
+    <button class="reset" id="reset" type="button">필터 초기화</button>
+  </div>
+</div>
+<p class="insight" id="insight"></p>
+<div class="kpis" id="kpis"></div>
+<div class="grid">
+  <section class="panel wide">
+    <div class="ph"><h2>월별 추이</h2>
+      <div class="seg" id="metricSeg" role="group" aria-label="지표"><button type="button" data-m="cnt" aria-pressed="true">청구건수</button><button type="button" data-m="cost" aria-pressed="false">총진료비</button></div></div>
+    <div class="legend"><span><i style="background:var(--s1)"></i>2025년</span><span><i style="background:var(--prev)"></i>2024년</span></div>
+    <div id="trend"></div>
+    <details><summary>표로 보기</summary><div class="scroll" id="trendTable"></div></details>
+  </section>
+  <section class="panel">
+    <div class="ph"><h2>상병 TOP 10</h2><span class="note">2025년 · 클릭하면 해당 상병만 보기</span></div>
+    <div id="topSick"></div>
+  </section>
+  <section class="panel">
+    <div class="ph"><h2>주요 처방 성분 TOP 10</h2><span class="note">2025년 · 원외처방이 포함된 청구건 수</span></div>
+    <div id="topRx"></div>
+  </section>
+  <section class="panel">
+    <div class="ph"><h2>연령·성별 구성</h2><span class="note">2025년 · 청구건수</span></div>
+    <div class="legend"><span><i style="background:var(--s1)"></i>남성</span><span><i style="background:var(--s2)"></i>여성</span></div>
+    <div class="cols" id="age"></div>
+  </section>
+  <section class="panel">
+    <div class="ph"><h2>권역별 비중</h2><span class="note">2025년 · 환자 거주지 기준</span></div>
+    <div id="reg"></div>
+    <div class="ph" style="margin-top:18px"><h2>진료과별</h2><span class="note">2025년</span></div>
+    <div id="dept"></div>
+  </section>
+</div>
+<footer>환자 수는 해당 기간에 청구가 한 건 이상 있는 고유 수진자 기준입니다. 진료비는 명세서의 요양급여비용총액이며 처방 성분은 원외처방 기준입니다. 질환 영역은 주상병 코드의 첫 글자로 묶었습니다.</footer>
+</div>
+<div class="tip" id="tip"></div>
+</body>
+</html>
